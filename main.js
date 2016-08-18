@@ -1,7 +1,3 @@
-import minimist from 'minimist';
-import chalk from 'chalk';
-// import clear from 'clear';
-// import path from 'path';
 import fs from 'fs';
 import util from 'util';
 import sax from 'sax';
@@ -9,11 +5,9 @@ import sax from 'sax';
 import {Bible, BibleBook, BibleChapter, BibleVerse} from './book';
 
 
-(function() {
-    const argv = minimist(process.argv.slice(2));
-    const xmlPath = './test/asv.xml',
-        strict = true,
-        parser = sax.parser(strict);
+export parseUSFXFile(xmlPath) {
+    /* Parses a USFX xml file and returns a Bible object. */
+    const strict = true, parser = sax.parser(strict);
 
     const bible = new Bible();
     let currentBook = null;
@@ -92,11 +86,7 @@ import {Bible, BibleBook, BibleChapter, BibleVerse} from './book';
     };
     const xmldata = fs.readFileSync(xmlPath);
     parser.write(xmldata);
-    console.log(bible.books.length);
-    fs.writeFile('verses.json', JSON.stringify(bible));
-})();
-
-
-function helloworld() {
-    console.log('hello world');
+    // fs.writeFile('verses.json', JSON.stringify(bible));
+    return bible;
 }
+
