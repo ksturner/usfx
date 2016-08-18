@@ -1,3 +1,4 @@
 verses.json
 lib/*
 node_modules/*
+*todo*.md
