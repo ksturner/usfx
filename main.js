@@ -1,2 +1,2 @@
-var usfx = require('src/usfx');
+import usfx from './src/usfx';
 module.exports = usfx;

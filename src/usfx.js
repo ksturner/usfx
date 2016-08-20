@@ -1,11 +1,9 @@
 import fs from 'fs';
 import util from 'util';
 import sax from 'sax';
-
 import {Bible, BibleBook, BibleChapter, BibleVerse} from './bible';
 
-
-export parseUSFXFile(xmlPath) {
+export function parseUSFXFile(xmlPath) {
     /* Parses a USFX xml file and returns a Bible object. */
     const strict = true, parser = sax.parser(strict);
 
