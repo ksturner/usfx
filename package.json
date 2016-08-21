@@ -26,7 +26,8 @@
     "babel-preset-stage-0": "^6.5.0",
     "babelify": "^7.3.0",
     "browserify": "^13.1.0",
-    "core-js": "^2.4.1"
+    "core-js": "^2.4.1",
+    "mocha": "^3.0.2"
   },
   "dependencies": {
     "clear": "0.0.1",
