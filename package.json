@@ -4,7 +4,7 @@
   "description": "Bible USFX parser",
   "main": "main.js",
   "scripts": {
-    "docs": "node_modules/.bin/jsdoc src/*.js && open out/index.html",
+    "docs": "node_modules/.bin/jsdoc --readme ./README.md src/*.js && open out/index.html",
     "test": "node_modules/.bin/mocha --require babel-register test/*.js",
     "clean": "rm -rf lib && mkdir lib",
     "build-lib": "browserify main.js -t babelify --outfile lib/bundle.js",

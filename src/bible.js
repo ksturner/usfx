@@ -1,5 +1,6 @@
 
 
+/** Class representing a Bible. */
 export class Bible {
     /**
      * @constructor
@@ -33,14 +34,25 @@ export class Bible {
         };
     }
 
+    /**
+     * Given a common bible reference, it will return array of verse text.
+     * @param {string} stringReference - string reference like 'Heb 13:8'
+     * @return {Array} An array of verse text.
+     */
     getVerseText(stringReference) {
-        // Pass in something like Heb 13:8 and get an array of verses, in this
-        // case an array of one element.
+        console.log('implement me');
     }
 
 }
 
 export class BibleBook {
+    /**
+     * Class for Bible Book
+     * @constructor
+     * @param {string} name - common name of the book
+     * @param {string} shortName - short abbreviation of book name
+     * @param {string} longName - long version of book name in title format
+     */
     constructor(name, shortName, longName) {
         this._name =  name;
         this._shortName = shortName;
@@ -83,6 +95,10 @@ export class BibleBook {
 }
 
 export class BibleChapter {
+    /**
+     * Class for Bible Chapter
+     * @constructor
+     */
     constructor(book, chapterNumber) {
         this.book = book;
         this.number = chapterNumber;
@@ -123,6 +139,10 @@ export class BibleVerse {
      * because that is the format that the NET bible is using here:
      *
      * http://labs.bible.org/api/?passage=John%203:16&type=json
+     */
+    /**
+     * Class for Bible Verse
+     * @constructor
      */
     constructor(book, chapter, verseNumber, text) {
         this.book = book;
