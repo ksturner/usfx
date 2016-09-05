@@ -1,6 +1,9 @@
 
 
 export class Bible {
+    /**
+     * @constructor
+     */
     constructor() {
         this.books = []
     }
@@ -29,6 +32,12 @@ export class Bible {
             }),
         };
     }
+
+    getVerseText(stringReference) {
+        // Pass in something like Heb 13:8 and get an array of verses, in this
+        // case an array of one element.
+    }
+
 }
 
 export class BibleBook {

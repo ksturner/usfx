@@ -3,6 +3,10 @@ import util from 'util';
 import sax from 'sax';
 import {Bible, BibleBook, BibleChapter, BibleVerse} from './bible';
 
+/**
+ * Parses XML USFX file and returns a single Bible object.
+ * @param {string} xmlPath - the absolute or relative path to usfx xml file
+ */
 export function parseUSFXFile(xmlPath) {
     /* Parses a USFX xml file and returns a Bible object. */
     const strict = true, parser = sax.parser(strict);
