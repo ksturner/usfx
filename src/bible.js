@@ -1,3 +1,5 @@
+import {bcv_parser} from 'bible-passage-reference-parser/js/en_bcv_parser';
+
 
 
 /** Class representing a Bible. */
@@ -34,13 +36,59 @@ export class Bible {
         };
     }
 
+    _getReferenceFromText(stringReference) {
+        const bcv = new bcv_parser;
+        const parts = bcv.parse('jo 3:16').osis().split('.');
+    }
+
     /**
      * Given a common bible reference, it will return array of verse text.
      * @param {string} stringReference - string reference like 'Heb 13:8'
      * @return {Array} An array of verse text.
      */
     getVerseText(stringReference) {
-        console.log('implement me');
+        const verses = [];
+        const bcv = new bcv_parser;
+        const entities = bcv.parse(stringReference).entities;
+
+        for (const e of entities) {
+            switch (e.type) {
+                case 'range':
+                    for (const p of e.passages) {
+                        /*
+                        { b: 'John', c: 3, v: 16, type: 'bcv' }
+                        { b: 'John', c: 3, v: 18, type: 'integer' }
+                        console.log(p.start);
+                        console.log(p.end);
+                        */
+                        const book = p.start.b;
+                        const chapter = p.start.c;
+                        const range = Array.from({length: p.end.v - p.start.v},
+                                                 (v, k) => k + p.start.v);
+                        for (const v of range) {
+                            console.log(book);
+                            console.log(chapter);
+                            console.log(v);
+                            verses.push(this._getVerse(book, chapter, v));
+                        }
+                    }
+                    break;
+                default:
+                    break;
+            };
+        }
+        return verses;
+    }
+    _getVerse(book, chapter, verse) {
+        if (this.haveBookName(book)) {
+            const b = this.getBookByName(book);
+            if (b.haveChapterNumber(chapter)) {
+                const c = this.getChapterByNumber(chapter);
+                if (c.haveVerseNumber(verse)) {
+                    return c.getVerseByNumber(verse);
+                }
+            }
+        }
     }
 
 }

@@ -32,6 +32,7 @@
     "mocha": "^3.0.2"
   },
   "dependencies": {
+    "bible-passage-reference-parser": "^2.0.0",
     "clear": "0.0.1",
     "clui": "^0.3.1",
     "sax": "^1.2.1",
