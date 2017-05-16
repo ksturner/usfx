@@ -1,6 +1,6 @@
 {
   "name": "usfx",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Bible USFX parser",
   "main": "main.js",
   "scripts": {
