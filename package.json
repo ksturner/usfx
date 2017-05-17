@@ -2,7 +2,7 @@
   "name": "usfx",
   "version": "0.1.2",
   "description": "Bible USFX parser",
-  "main": "main.js",
+  "main": "lib/bundle.js",
   "scripts": {
     "docs": "node_modules/.bin/jsdoc --readme ./README.md src/*.js && open out/index.html",
     "test": "node_modules/.bin/mocha --require babel-register test/*.js",
